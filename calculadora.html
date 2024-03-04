@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .calculator {
+    width: 300px;
+    margin: 50px auto;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f2f2f2;
+  }
+  
+  .display {
+    width: calc(100% - 20px);
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 20px;
+  }
+  
+  .keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 18px;
+  }
+  </style>
+  <script>
+    function appendToDisplay(value) {
+        document.getElementById('display').value += value;
+      }
+      
+      function clearDisplay() {
+        document.getElementById('display').value = '';
+      }
+      
+      function calculate() {
+        var displayValue = document.getElementById('display').value;
+        try {
+          var result = eval(displayValue);
+          document.getElementById('display').value = result;
+        } catch (error) {
+          document.getElementById('display').value = 'Error';
+        }
+      }
+      
+  </script>
+</head>
+<body style="background-color:rgb(179, 97, 152);">
+
+    <h1 style="color:rgb(0, 0, 0);"><center>Calculadora</center></h1>
+
+  <div class="calculator">
+    <input type="text" class="display" id="display" readonly>
+    <div class="keys">
+      <button onclick="appendToDisplay('7')" style="color:rgb(5, 63, 139);">7</button>
+      <button onclick="appendToDisplay('8')" style="color:rgb(5, 63, 139);">8</button>
+      <button onclick="appendToDisplay('9')" style="color:rgb(5, 63, 139);">9</button>
+      <button onclick="appendToDisplay('+')" style="color:red;">+</button>
+      <button onclick="appendToDisplay('4')" style="color:rgb(5, 63, 139);">4</button>
+      <button onclick="appendToDisplay('5')" style="color:rgb(5, 63, 139);">5</button>
+      <button onclick="appendToDisplay('6')" style="color:rgb(5, 63, 139);">6</button>
+      <button onclick="appendToDisplay('-')" style="color:red;">-</button>
+      <button onclick="appendToDisplay('1')" style="color:rgb(5, 63, 139);">1</button>
+      <button onclick="appendToDisplay('2')" style="color:rgb(5, 63, 139);">2</button>
+      <button onclick="appendToDisplay('3')" style="color:rgb(5, 63, 139);">3</button>
+      <button onclick="appendToDisplay('*')" style="color:red;">*</button>
+      <button onclick="appendToDisplay('0')" style="color:rgb(5, 63, 139);">0</button>
+      <button onclick="appendToDisplay('.')" style="color:rgb(36, 13, 138);">.</button>
+      <button onclick="clearDisplay()" style="color:red;">C</button>
+      <button onclick="calculate()" style="color:rgb(36, 13, 138);">=</button>
+      <button onclick="appendToDisplay('/')" style="color:red;">/</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
