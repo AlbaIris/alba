@@ -17,7 +17,9 @@ def hello_proyect(num1, num2, num3, operaciones):
     if __name__ == ('__main_') :
      app.run(debug=True)
 
-def hello_proyect(num1, num2, operaciones):
+@app.route('/')
+@app.route("/calculadora/num1/num2/operaciones")
+def hello_open(num1, num2, operaciones):
    if operaciones == 'suma':
         return num1+num2 
    if operaciones == 'resta':
